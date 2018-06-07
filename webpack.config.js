@@ -43,7 +43,8 @@ module.exports = {
     new ExtractTextPlugin('./[name]/[name].css'),
     new HtmlWebpackPlugin({
       template: './index/index.pug',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: [ 'index' ]
     })
   ],
 
