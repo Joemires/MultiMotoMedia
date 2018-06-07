@@ -1,13 +1,13 @@
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    app: [ './app.ts', './app.scss' ]
+    index: [ './index/index.ts', './index/index.scss' ]
   },
 
   module: {
@@ -22,6 +22,10 @@ module.exports = {
           fallback: 'style-loader',
           use: [ 'css-loader', 'sass-loader' ]
         })
+      },
+      {
+        test: /\.pug$/,
+        use: 'pug-loader'
       }
     ]
   },
@@ -32,15 +36,21 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name]/[name].js'
   },
 
   plugins: [
-    new ExtractTextPlugin('./bundle.css'),
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      proxy: 'http://localhost:8080/'
+    new ExtractTextPlugin('./[name]/[name].css'),
+    new HtmlWebpackPlugin({
+      template: './index/index.pug',
+      filename: 'index.html'
     })
-  ]
+  ],
+
+  devServer: {
+    stats: 'errors-only',
+    host: process.env.HOST,
+    port: process.env.PORT,
+    open: true
+  }
 };
