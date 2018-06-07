@@ -4,7 +4,8 @@
   "description": "Projekt zaliczeniowy z przedmiotu Multimedia",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server --progress --colors",
+    "start": "webpack && npm run dev",
     "build": "webpack -p"
   },
   "repository": {

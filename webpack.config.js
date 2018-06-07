@@ -1,6 +1,7 @@
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -35,6 +36,11 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('./bundle.css')
+    new ExtractTextPlugin('./bundle.css'),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:8080/'
+    })
   ]
 };
