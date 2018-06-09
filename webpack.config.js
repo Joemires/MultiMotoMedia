@@ -2,12 +2,15 @@ const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ConcatPlugin = require('webpack-concat-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    index: [ './index/index.ts', './index/index.scss' ]
+    app: [ './app.ts', './app.scss' ],
+    index: [ './pages/index/index.ts', './pages/index/index.scss' ]
   },
 
   module: {
@@ -41,11 +44,34 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('./[name]/[name].css'),
+
+    new ConcatPlugin({
+      uglify: true,
+      name: 'vendor',
+      injectType: 'prepend',
+      outputPath: 'core/',
+      filesToConcat: [
+        'jquery',
+        'moment',
+        'nouislider',
+        'eonasdan-bootstrap-datetimepicker',
+        'material-kit/assets/js/core/popper.min.js',
+        'material-kit/assets/js/bootstrap-material-design.js',
+        'material-kit/assets/js/material-kit.js'
+      ]
+
+    }),
+
     new HtmlWebpackPlugin({
-      template: './index/index.pug',
+      template: './pages/index/index.pug',
       filename: 'index.html',
-      chunks: [ 'index' ]
-    })
+      chunks: [ 'app', 'index' ],
+      chunksSortMode: 'manual'
+    }),
+    
+    new CopyWebpackPlugin([
+      { from: 'assets', to: 'assets' }
+    ])
   ],
 
   devServer: {
