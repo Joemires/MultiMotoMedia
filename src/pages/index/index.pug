@@ -47,18 +47,23 @@ html(lang="en")
               a.nav-link(rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram")
                 i.fa.fa-instagram
     .page-header.header-filter(data-parallax="true")
-      video(autoplay muted loop style="z-index: -100; position: absolute; width: 100vw;")
+      video#header-video(autoplay muted loop)
         source(src="assets/video/background.mp4" type="video/mp4")
       .container
         .row
-          .col-md-6
-            h1.title Your Story Starts With Us.
-            h4
-              | Every landing page needs a small description after the big bold title, that's why we added this text here. Add here all the information that can make you or your product create the first impression.
+          .col-lg-6.col-md-12
+            h1.title Witaj w świecie motocykli.
+            h4.text-justify
+              | Najlepsza strona o motocyklach sportowych utworzona podczas zajęć z przedmiotu Multimedia na Uniwersytecie Ekonomicznym w Katowicach. Każdy landing page musi posiadać jakiś opis pod wielkim wytłuszczonym tytułem, więc i tutaj się znajduje.
             br
-            a.btn.btn-danger.btn-raised.btn-lg(href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank")
-              i.fa.fa-play
-              |  Watch video
+            .row
+              .col-sm-6
+                a.btn.btn-primary.btn-raised.btn-lg(href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank")
+                  i.fa.fa-play
+                  |  Watch video
+              .col-sm-2.offset-sm-4
+                a#bg-volume-control.btn.btn-lg.btn-link
+                  i.fa.fa-volume-off
     .main.main-raised
       .container
         .section.text-center

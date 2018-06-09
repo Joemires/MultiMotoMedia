@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DawidStolarek/MultiMotoMedia#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.2",
     "ajv": "^6.5.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
