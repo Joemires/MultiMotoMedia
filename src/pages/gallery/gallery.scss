@@ -1,0 +1,33 @@
+#galleryModal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  #modalBG {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2001;
+    background-color: #000;
+    opacity: 0;
+    transition: 0.7s ease-in-out;
+  }
+  #modalIMG {
+    border-radius: 6px;
+    width: 80%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 2002;
+    display: block;
+    opacity: 0;
+    transition: 0.7s ease-in-out;
+  }
+}

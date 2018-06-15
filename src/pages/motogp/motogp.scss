@@ -1,0 +1,11 @@
+#counter {
+  border: 0.5em solid white;
+  padding: 4em;
+  user-select: none;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+#counter:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

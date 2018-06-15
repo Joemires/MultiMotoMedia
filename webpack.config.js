@@ -10,7 +10,13 @@ module.exports = {
 
   entry: {
     app: [ './app.ts', './app.scss' ],
-    index: [ './pages/index/index.ts', './pages/index/index.scss' ]
+    index: [ './pages/index/index.ts', './pages/index/index.scss' ],
+    ducati: [ './pages/ducati/ducati.ts', './pages/ducati/ducati.scss' ],
+    kawasaki: [ './pages/kawasaki/kawasaki.ts', './pages/kawasaki/kawasaki.scss' ],
+    yamaha: [ './pages/yamaha/yamaha.ts', './pages/yamaha/yamaha.scss' ],
+    gallery: [ './pages/gallery/gallery.ts', './pages/gallery/gallery.scss' ],
+    vod: [ './pages/vod/vod.ts', './pages/vod/vod.scss' ],
+    motogp: [ './pages/motogp/motogp.ts', './pages/motogp/motogp.scss' ]
   },
 
   module: {
@@ -23,7 +29,7 @@ module.exports = {
         test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [ 'css-loader', 'sass-loader' ]
+          use: [ 'css-loader?url=false', 'sass-loader' ]
         })
       },
       {
@@ -66,6 +72,42 @@ module.exports = {
       template: './pages/index/index.pug',
       filename: 'index.html',
       chunks: [ 'app', 'index' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/ducati/ducati.pug',
+      filename: 'ducati.html',
+      chunks: [ 'app', 'ducati' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/kawasaki/kawasaki.pug',
+      filename: 'kawasaki.html',
+      chunks: [ 'app', 'kawasaki' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/yamaha/yamaha.pug',
+      filename: 'yamaha.html',
+      chunks: [ 'app', 'yamaha' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/gallery/gallery.pug',
+      filename: 'gallery.html',
+      chunks: [ 'app', 'gallery' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/vod/vod.pug',
+      filename: 'vod.html',
+      chunks: [ 'app', 'vod' ],
+      chunksSortMode: 'manual'
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/motogp/motogp.pug',
+      filename: 'motogp.html',
+      chunks: [ 'app', 'motogp' ],
       chunksSortMode: 'manual'
     }),
     

@@ -1,0 +1,36 @@
+.page-header {
+  overflow: hidden;
+  #header-video-container {
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    #header-video {
+      position: relative;
+      left: -50%;
+      height: 100%;
+    }
+  }
+}
+
+.nav-item {
+  svg {
+    path, polygon {
+      fill: currentColor;
+    }
+  }
+}
+
+.row-equal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    height: 100%;
+  }
+}
