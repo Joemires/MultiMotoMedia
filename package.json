@@ -4,7 +4,7 @@
   "description": "Projekt zaliczeniowy z przedmiotu Multimedia",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=3000 webpack-dev-server -d --host 192.168.0.105",
+    "start": "webpack-dev-server -d",
     "build": "webpack -p"
   },
   "repository": {
